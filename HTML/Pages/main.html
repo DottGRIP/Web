@@ -6,12 +6,13 @@
     <style>
         .button {
             background-color: #e0e0e0;
-            color: #111;
+            color: #101010;
             border: 4px ridge #777;
             padding: 4px 16px;
-            margin: 4px 2px;
+            margin: 2px 2px;
             font-size: 20px;
             height: 45px;
+            width: 120px;
             text-align: center;
             display: inline-block;
             cursor: grab;
@@ -19,6 +20,7 @@
             transition-duration: 0.3s;
         }
         .button:hover {
+            transform: scale(1.05);
             background-color: #101010;
             color: #e0e0e0;
         }
@@ -29,25 +31,61 @@
         }
     </style>
     <style>
-        .div {
-            background-color: #bcbcbc;
-            border: 3px double #000;
+        .hidden {
+            display: none;
+        }
+        .header {
+            background-color: #e0e0e0;
         }
     </style>
 </head>
 <body>
-    <div class="div">
-        <button onclick="id51d01" id="000-001-000" class="button symbol">&equiv;</button>
-        <button onclick="id9d0()" id="000-000-000" class="button">Home</button>
-        <button onclick="id81d01()" id="000-000-001" class="button">dottGRIP</button>
-        <button onclick="id81d02()" id="000-000-002" class="button">Info</button>
-        <button onclick="id81d03()" id="000-000-003" class="button">Links</button>
-        <button onclick="id81d04()" id="000-000-004" class="button">About</button>
-        <button onclick="id81d05()" id="000-000-005" class="button">Misc</button>
+    <div>
+        <button onclick="id51d01()" id="000-001-000" class="button symbol">&equiv;</button>
+        <button onclick="id9d0(0)" id="000-000-000" class="button">Home</button>
+        <button onclick="id9d0(1)" id="000-000-001" class="button">dottGRIP</button>
+        <button onclick="id9d0(2)" id="000-000-002" class="button">Info</button>
+        <button onclick="id9d0(3)" id="000-000-003" class="button">Links</button>
+        <button onclick="id9d0(4)" id="000-000-004" class="button">About</button>
+        <button onclick="id9d0(5)" id="000-000-005" class="button">Misc</button>
     </div>
+    <section id="000-003-000">
+        <div id="002-000-000">
+            <p class="header">Home</p>
+        </div>
+        <div id="002-000-001" class="hidden">
+            <p class="header">dottGRIP</p>
+        </div>
+        <div id="002-000-002" class="hidden">
+            <p class="header">Info</p>
+        </div>
+        <div id="002-000-003" class="hidden">
+            <p class="header">Links</p>
+        </div>
+        <div id="002-000-004" class="hidden">
+            <p class="header">About</p>
+        </div>
+        <div id="002-000-005" class="hidden">
+            <p class="header">Misc</p>
+        </div>
+    </section>
     <script>
-        function id9d0() {
-
+        var a0 = document.getElementById("002-000-000");
+        var a1 = document.getElementById("002-000-001");
+        var a2 = document.getElementById("002-000-002");
+        var a3 = document.getElementById("002-000-003");
+        var a4 = document.getElementById("002-000-004");
+        var a5 = document.getElementById("002-000-005");
+        var atlas01 = [a0, a1, a2, a3, a4, a5];
+        var atlasSelect01 = atlas01.slice()
+        function id9d0(val) {
+            a0.classList.add("hidden");
+            a1.classList.add("hidden");
+            a2.classList.add("hidden");
+            a3.classList.add("hidden");
+            a4.classList.add("hidden");
+            a5.classList.add("hidden");
+            atlas01[val].classList.remove("hidden")
         }
     </script>
 </body>
